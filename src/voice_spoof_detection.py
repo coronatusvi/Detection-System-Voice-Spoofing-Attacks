@@ -26,8 +26,9 @@ class AudioProcessor(AudioProcessorBase):
 
 def compute_hash(wav_np: np.ndarray) -> str:
     """Computes the SHA-256 hash of a numpy array representing audio data."""
-    wav_bytes = wav_np.tobytes()
-    return hashlib.sha256(wav_bytes).hexdigest()
+    h = hashlib.sha256()
+    h.update(wav_np.astype(np.float32).tobytes())
+    return h.hexdigest()
 
 # @st.cache_resource
 def get_model():
