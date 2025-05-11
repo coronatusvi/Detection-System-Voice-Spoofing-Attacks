@@ -1,0 +1,8 @@
+streamlit
+torch
+torchaudio
+numpy
+scikit-learn
+pydub
+librosa
+streamlit-audiorec  
