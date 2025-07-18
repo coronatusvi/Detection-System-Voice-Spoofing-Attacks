@@ -53,7 +53,7 @@ def run_model(wav: np.ndarray) -> float:
         proc = np.concatenate([wav.astype(np.float32), pad], axis=1)
     else:
         proc = wav[:, :64000].astype(np.float32)
-
+                
     # chạy model
     tensor = torch.from_numpy(proc).unsqueeze(0)  # [1,1,64000]
     with torch.no_grad():
@@ -63,7 +63,7 @@ def run_model(wav: np.ndarray) -> float:
 def process_audio_input(audio_data=None, file_path=None):
     """Handles audio input methods (recording or file upload) and returns the processed audio."""
     if audio_data is not None:
-        # Process the recorded audio
+        # Process the recorded audio    
         processor = AudioProcessor()
         return processor.process(audio_data)
     elif file_path is not None:
@@ -71,5 +71,5 @@ def process_audio_input(audio_data=None, file_path=None):
         waveform, sample_rate = torchaudio.load(file_path)
         processor = AudioProcessor(sample_rate)
         return processor.process(waveform)
-    else:
+    else:       
         raise ValueError("No audio input provided.")

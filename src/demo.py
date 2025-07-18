@@ -12,10 +12,10 @@ import torch
 st.set_page_config(page_title="Detection System Voice Spoofing Attacks")
 
 def audiorec_demo_app():
-    st.title('Hệ thống phát hiện tấn công giả mạo giọng nói')
+    st.title('Hệ thống phát hiện giọng giả mạo')
     st.markdown('Implemented by [VI&HA]')
     st.write('\n\n')
-
+    
     # Thu âm trực tiếp
     st.subheader("🎤 Record Audio")
     wav_audio_data = st_audiorec()
